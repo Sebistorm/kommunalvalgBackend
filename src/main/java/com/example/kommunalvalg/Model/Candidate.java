@@ -8,6 +8,7 @@ public class Candidate {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int candidateID;
     private String candidateName;
+    private int numberOfVotes;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "partyID")
@@ -40,11 +41,20 @@ public class Candidate {
         this.party = party;
     }
 
+    public int getNumberOfVotes() {
+        return numberOfVotes;
+    }
+
+    public void setNumberOfVotes(int numberOfVotes) {
+        this.numberOfVotes = numberOfVotes;
+    }
+
     @Override
     public String toString() {
         return "Candidate{" +
                 "candidateID=" + candidateID +
                 ", candidateName='" + candidateName + '\'' +
+                ", numberOfVotes=" + numberOfVotes +
                 ", party=" + party +
                 '}';
     }

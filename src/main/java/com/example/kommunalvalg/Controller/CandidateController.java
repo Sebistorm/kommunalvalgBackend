@@ -36,6 +36,7 @@ public class CandidateController {
         if(candidateData.isPresent()){
             Candidate _candidate = candidateData.get();
             _candidate.setCandidateName(candidate.getCandidateName());
+            _candidate.setNumberOfVotes(candidate.getNumberOfVotes());
             _candidate.setParty(candidate.getParty());
             _candidate = candidateRepo.save(_candidate);
             return new ResponseEntity<>(_candidate, HttpStatus.OK);
@@ -76,6 +77,22 @@ public class CandidateController {
         Candidate candidate = new Candidate();
         candidate.setCandidateName("Not Found");
         return candidate;
+    }
+
+    @GetMapping("/getVotesTotal")
+    public int getTotalVotes() {
+        return candidateRepo.getVotesTotal();
+    }
+
+
+    @GetMapping("/getPartyVotesTotal")
+    public List<Object[]> getTotalPartyVotes() {
+        return candidateRepo.getPartyVotes();
+    }
+
+    @GetMapping("/getTopFiveCandidates")
+    public List<Candidate> getTopFiveCandidates() {
+        return candidateRepo.getTopFiveCandidates();
     }
 
 }
