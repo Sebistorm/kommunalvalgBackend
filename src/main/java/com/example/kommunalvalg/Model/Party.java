@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
-
 @Entity
 public class Party {
     @Id
@@ -20,6 +19,13 @@ public class Party {
     private Set<Candidate> candidate = new HashSet<>();
 
     public Party() {
+    }
+
+    public Party(int partyID, String partyName, String partySymbol, Set<Candidate> candidate) {
+        this.partyID = partyID;
+        this.partyName = partyName;
+        this.partySymbol = partySymbol;
+        this.candidate = candidate;
     }
 
     public int getPartyID() {

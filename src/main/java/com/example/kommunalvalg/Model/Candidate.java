@@ -1,5 +1,6 @@
 package com.example.kommunalvalg.Model;
 
+
 import javax.persistence.*;
 
 @Entity
@@ -15,6 +16,13 @@ public class Candidate {
     private Party party;
 
     public Candidate() {
+    }
+
+    public Candidate(int candidateID, String candidateName, int numberOfVotes, Party party) {
+        this.candidateID = candidateID;
+        this.candidateName = candidateName;
+        this.numberOfVotes = numberOfVotes;
+        this.party = party;
     }
 
     public int getCandidateID() {
