@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Entity
 public class Candidate {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int candidateID;
     private String candidateName;
     private int numberOfVotes;
